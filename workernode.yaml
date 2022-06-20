@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-node
+  labels:
+    name: worker-app
+    autor: sudheer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: worker-node
+  template:
+    metadata:
+      name: worker-node-pod
+      labels:
+        name: worker-app
+    spec:
+      containers:
+        - name: worker-app
+          image: artifactory.otxlab.net/dockerhub/dockersamples/examplevotingapp_worker
+

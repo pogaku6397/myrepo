@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-app
+  labels:
+    name: result-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: result-app
+  template:
+    metadata:
+      name: result-app-pod
+      labels:
+        name: result-app
+    spec:
+      containers:
+        - name: result-app
+         image: artifactory.otxlab.net/dockerhub/dockersamples/examplevotingapp_result
+
+
+
+
